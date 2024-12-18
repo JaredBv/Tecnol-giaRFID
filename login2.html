@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login2</title>
+    <meta name="description" content="Ejemplo: Login 1">
+    <link rel="preload" href="css/normalize.css" as="style">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10+Charted&display=swap" rel="stylesheet">
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Aquí están los estilos existentes */
+    </style>
+</head>
+
+<body>
+    <section class="fondo">
+        <main class="contenedor">
+            <div class="contenido">
+                <img src="img/image.jpeg" alt="USER" class="imagen">
+                <form class="formulario" id="loginForm">
+                    <div class="campo1">
+                        <label class="campo__label" for="username">Usuario</label>
+                    </div>
+                    <div class="campo2">
+                        <input class="campo__field" type="text" placeholder="Tu nombre de usuario" id="username" required>
+                    </div>
+                    <div class="campo1">
+                        <label class="campo__label contraseña" for="password">Contraseña</label>
+                    </div>
+                    <div class="campo2">
+                        <input class="campo__field contraseña-field" type="password" placeholder="Tu contraseña" id="password" required>
+                    </div>
+                    <div class="botones">
+                        <button type="submit" class="boton boton--primario">Iniciar Sesión</button>
+                    </div>
+                    <div id="mensaje"></div>
+                </form>
+            </div>
+        </main>
+    </section>
+
+    <script>
+        // Verificar credenciales al enviar el formulario
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Evitar que el formulario se envíe automáticamente
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const mensaje = document.getElementById('mensaje');
+
+            if (username === "JARED" && password === "$c1#hZ5UI89z") {
+                // Redirigir al usuario a la ruta especificada
+                window.location.href = "http://localhost:8082/";
+            } else {
+                // Mostrar mensaje de error
+                mensaje.textContent = "Usuario o contraseña incorrectos";
+                mensaje.style.color = "red";
+            }
+        });
+    </script>
+</body>
+
+</html>
